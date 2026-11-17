@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riddhima Arora | Stellar Cosmic Dossier</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           1. LIGHT BLACK BACKGROUND & GLOWING PURPLE VARIABLES
+           ========================================= */
+        :root {
+            --bg-light-black: #111018;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --star-white: #ffffff;
+            --star-glow: 0 0 16px rgba(255, 255, 255, 0.95), 0 0 30px rgba(216, 180, 254, 0.6);
+            --purple-box-glow: 0 0 40px rgba(168, 85, 247, 0.35), inset 0 0 25px rgba(192, 132, 252, 0.15);
+            --border-subtle: rgba(216, 180, 254, 0.28);
+            --border-hover: rgba(216, 180, 254, 0.75);
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light-black);
+            /* Light Black / Charcoal Space Background with Starfield */
+            background-image: 
+                radial-gradient(1.5px 1.5px at 12% 18%, rgba(255, 255, 255, 0.95) 50%, transparent 100%),
+                radial-gradient(1.2px 1.2px at 28% 45%, rgba(216, 180, 254, 0.7) 50%, transparent 100%),
+                radial-gradient(2px 2px at 50% 12%, rgba(255, 255, 255, 1) 50%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 75% 28%, rgba(255, 255, 255, 0.9) 50%, transparent 100%),
+                radial-gradient(1px 1px at 88% 68%, rgba(192, 132, 252, 0.6) 50%, transparent 100%),
+                radial-gradient(circle at 20% 30%, rgba(107, 33, 168, 0.35) 0%, transparent 50%),
+                radial-gradient(circle at 80% 75%, rgba(126, 34, 206, 0.3) 0%, transparent 55%),
+                linear-gradient(180deg, #14121f 0%, #111018 50%, #0d0b14 100%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            margin: 0 0 0.75rem 0;
+            letter-spacing: -0.02em;
+            color: var(--star-white);
+            text-shadow: var(--star-glow);
+        }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.45rem;
+            font-weight: 600;
+            margin: 0 0 1.4rem 0;
+            padding-bottom: 0.65rem;
+            border-bottom: 1px solid rgba(216, 180, 254, 0.35);
+            color: var(--star-white);
+            text-shadow: var(--star-glow);
+        }
+
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.08rem;
+            font-weight: 600;
+            margin: 0 0 0.25rem 0;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        p {
+            margin: 0 0 1rem 0;
+            color: var(--text-secondary);
+            font-size: 0.96rem;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* =========================================
+           2. MISSION CONTROL STICKY NAV
+           ========================================= */
+        #main-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(20, 18, 31, 0.88);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 0.95rem 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--star-white);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            display: inline-block;
+            margin-left: 1.1rem;
+        }
+
+        .nav-links li:first-child {
+            margin-left: 0;
+        }
+
+        .nav-links a {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--star-white);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        /* =========================================
+           3. ATMOSPHERIC CELESTIAL TAGLINES
+           ========================================= */
+        .cosmic-banner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            margin-bottom: -0.75rem;
+        }
+
+        .cosmic-banner span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            letter-spacing: 0.15em;
+            color: #d8b4fe;
+            text-shadow: 0 0 8px rgba(216, 180, 254, 0.5);
+            text-transform: uppercase;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .cosmic-banner hr {
+            flex-grow: 1;
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(216, 180, 254, 0.4), transparent);
+        }
+
+        /* =========================================
+           4. LAYOUT & GLOWING PURPLE BACKLIGHT CARDS
+           ========================================= */
+        .container {
+            max-width: 1000px;
+            margin: 1.75rem auto 4rem auto;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .space-card {
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
+            padding: 2.25rem;
+            /* Glowing Purple Backlight Effect */
+            box-shadow: var(--purple-box-glow);
+            transition: border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .space-card:hover {
+            border-color: var(--border-hover);
+            box-shadow: 0 0 50px rgba(168, 85, 247, 0.5), inset 0 0 30px rgba(216, 180, 254, 0.25);
+        }
+
+        /* Rich dark charcoal-purple gradient shades for boxes */
+        .card-hero {
+            background: linear-gradient(135deg, rgba(38, 22, 70, 0.85), rgba(20, 12, 38, 0.9));
+        }
+
+        .card-education {
+            background: linear-gradient(135deg, rgba(46, 26, 82, 0.85), rgba(24, 14, 45, 0.9));
+        }
+
+        .card-experience {
+            background: linear-gradient(135deg, rgba(54, 30, 96, 0.82), rgba(28, 15, 52, 0.88));
+        }
+
+        .card-skills {
+            background: linear-gradient(135deg, rgba(42, 24, 76, 0.85), rgba(22, 12, 42, 0.9));
+        }
+
+        .card-leadership {
+            background: linear-gradient(135deg, rgba(50, 28, 90, 0.84), rgba(26, 14, 48, 0.89));
+        }
+
+        .card-contact {
+            background: linear-gradient(135deg, rgba(62, 34, 112, 0.88), rgba(34, 18, 60, 0.92));
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 0.85fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #ffffff;
+            background: rgba(168, 85, 247, 0.2);
+            border: 1px solid rgba(216, 180, 254, 0.4);
+            padding: 0.3rem 0.85rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            color: #e9d5ff;
+            font-weight: 500;
+            margin: 0 0 1rem 0;
+            text-shadow: 0 0 8px rgba(216, 180, 254, 0.5);
+        }
+
+        .profile-frame {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 0.85rem;
+            text-align: center;
+        }
+
+        .profile-frame img {
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+            background: #241042;
+        }
+
+        .profile-location {
+            margin-top: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            color: #e9d5ff;
+        }
+
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .item-box {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.35rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .item-box:hover {
+            border-color: rgba(216, 180, 254, 0.7);
+        }
+
+        .meta-line {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #e9d5ff;
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+            text-shadow: 0 0 6px rgba(216, 180, 254, 0.4);
+        }
+
+        .tag-list {
+            margin-top: 0.85rem;
+        }
+
+        .tag {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: #f8fafc;
+            background: rgba(168, 85, 247, 0.2);
+            border: 1px solid rgba(216, 180, 254, 0.3);
+            padding: 0.22rem 0.65rem;
+            border-radius: 6px;
+            margin: 0 0.35rem 0.35rem 0;
+        }
+
+        /* =========================================
+           5. TABLES & LISTS
+           ========================================= */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.95rem 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.93rem;
+        }
+
+        th {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--star-white);
+            background: rgba(255, 255, 255, 0.04);
+            text-shadow: var(--star-glow);
+        }
+
+        td {
+            color: var(--text-secondary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .activity-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .activity-list li {
+            padding-left: 1.35rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .activity-list li::before {
+            content: "★";
+            position: absolute;
+            left: 0;
+            color: var(--star-white);
+            font-size: 0.85rem;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+        }
+
+        .activity-list strong {
+            color: #ffffff;
+            text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+        }
+
+        /* =========================================
+           6. FOOTER & TRANSMISSION COORDS
+           ========================================= */
+        #contact {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-heading {
+            font-size: 1.2rem;
+            color: var(--star-white);
+            text-shadow: var(--star-glow);
+        }
+
+        .transmission-coords {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .coord-item {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .coord-item span {
+            color: #d8b4fe;
+            text-shadow: 0 0 6px rgba(216, 180, 254, 0.5);
+        }
+
+        .coord-item a {
+            color: var(--star-white);
+            text-decoration: none;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+            transition: color 0.2s ease;
+        }
+
+        .coord-item a:hover {
+            color: #f0d48c;
+            text-shadow: 0 0 10px rgba(240, 212, 140, 0.8);
+        }
+
+        /* Mobile & Tablet Responsiveness */
+        @media (max-width: 780px) {
+            .hero-grid, .two-col-grid {
+                grid-template-columns: 1fr;
+            }
+            .profile-frame img {
+                height: 300px;
+            }
+            .nav-links li {
+                margin-left: 0.4rem;
+                font-size: 0.68rem;
+            }
+            .space-card {
+                padding: 1.5rem;
+            }
+            .cosmic-banner {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mission Control Navigation -->
+    <nav id="main-nav">
+        <div class="nav-container">
+            <a href="#about" class="nav-logo">Riddhima Arora</a>
+            <ul class="nav-links">
+                <li><a href="#about">Genesis</a></li>
+                <li><a href="#education">Stellar Academics</a></li>
+                <li><a href="#experience">Nebula Ventures</a></li>
+                <li><a href="#skills">Tech Arsenal</a></li>
+                <li><a href="#leadership">Pulsar Arts</a></li>
+                <li><a href="#contact">Transmission</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Atmospheric Space Tagline Banner -->
+    <div class="cosmic-banner">
+        <span>MISSION LOG: ORBITAL TRAJECTORY ACTIVE</span>
+        <hr>
+        <span>SECTOR 616</span>
+    </div>
+
+    <main class="container">
+
+        <!-- HERO / ABOUT SECTION -->
+        <section id="about" class="space-card card-hero">
+            <div class="hero-grid">
+                <div>
+                    <span class="badge">Computer Science &bull; Digital Business</span>
+                    <h1>Riddhima Arora</h1>
+                    <p class="subtitle">Dual-Degree Undergraduate in Computer Science &amp; Digital Business</p>
+                    <p>
+                        Riddhima Arora is an undergraduate pursuing a dual academic track in Computer Science (BTech) at Acropolis Institute of Technology and Research and Digital Business &amp; Entrepreneurship (BBA DBE) at IIM Bangalore.
+                    </p>
+                    <p>
+                        She combines foundational software engineering with practical experience in family business accounting, office administration, visual photography curation, and digital design.
+                    </p>
+                </div>
+                <aside class="profile-frame">
+                    <!-- Your photo linked here -->
+                    <img src="riddhima-photo.jpg" alt="Riddhima Arora">
+                    <div class="profile-location">INDORE, MP // BASE CAMP</div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Atmospheric Tagline -->
+        <div class="cosmic-banner" style="margin-top: 0.5rem; margin-bottom: -0.25rem;">
+            <span>SCANNING ACADEMIC STELLAR COORDINATES</span>
+            <hr>
+        </div>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="space-card card-education">
+            <h2>★ Stellar Academics</h2>
+            <div class="two-col-grid">
+                <div class="item-box">
+                    <h3>Indian Institute of Management Bangalore (IIMB)</h3>
+                    <div class="meta-line">BBA in Digital Business &amp; Entrepreneurship &bull; 2026 – Present</div>
+                    <p>Focused on digital strategy, e-commerce operations, market analytics, and web development.</p>
+                </div>
+                <div class="item-box">
+                    <h3>Acropolis Institute of Technology and Research</h3>
+                    <div class="meta-line">Bachelor of Technology (BTech) in Computer Science &bull; 2026 – Present</div>
+                    <p>Focused on core programming, data structures, algorithms, and software systems.</p>
+                </div>
+                <div class="item-box">
+                    <h3>Senior Secondary Education (Class XII)</h3>
+                    <div class="meta-line">The New GreenField Public Academy Indore</div>
+                </div>
+                <div class="item-box">
+                    <h3>Secondary Education (Class X)</h3>
+                    <div class="meta-line">St. Raphael's HS School Indore</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Atmospheric Tagline -->
+        <div class="cosmic-banner" style="margin-top: 0.5rem; margin-bottom: -0.25rem;">
+            <span>MAPPING OPERATIONS &amp; DIGITAL VENTURES</span>
+            <hr>
+        </div>
+
+        <!-- EXPERIENCE & VENTURES SECTION -->
+        <section id="experience" class="space-card card-experience">
+            <h2>★ Nebula Ventures</h2>
+            <div class="two-col-grid">
+                <div class="item-box">
+                    <h3>Family Business Office &amp; Financial Administration</h3>
+                    <div class="meta-line">Operations &amp; Accounting Support</div>
+                    <p>Assists in managing office administration, commercial bookkeeping, and ledger reconciliation using Tally, gaining practical exposure to business workflows and financial recordkeeping.</p>
+                    <div class="tag-list">
+                        <span class="tag">Tally Accounting</span>
+                        <span class="tag">Office Administration</span>
+                        <span class="tag">Ledger Management</span>
+                    </div>
+                </div>
+                <div class="item-box">
+                    <h3>Cross-Platform Visual Storytelling &amp; Photography</h3>
+                    <div class="meta-line">YouTube &bull; Instagram &bull; Pinterest</div>
+                    <p>Creates and publishes original multimedia content across YouTube and Instagram alongside curating a Pinterest account dedicated to original photography, framing, and visual moodboards.</p>
+                    <div class="tag-list">
+                        <span class="tag">Photography</span>
+                        <span class="tag">Pinterest Curation</span>
+                        <span class="tag">Adobe Photoshop</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Atmospheric Tagline -->
+        <div class="cosmic-banner" style="margin-top: 0.5rem; margin-bottom: -0.25rem;">
+            <span>COMPUTING &amp; CREATIVE ARSENAL ANALYSIS</span>
+            <hr>
+        </div>
+
+        <!-- SKILLS TABLE SECTION -->
+        <section id="skills" class="space-card card-skills">
+            <h2>★ Tech Arsenal</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Domain Matrix</th>
+                        <th>Core Competencies &amp; Systems</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Business &amp; Operations</strong></td>
+                        <td>Tally Accounting, Office Administration, Financial Recordkeeping, Market Research</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Design, Visuals &amp; Audio</strong></td>
+                        <td>Photography, Adobe Photoshop, Digital Collages, Pinterest Curation, Synthesizer</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Computing &amp; Web</strong></td>
+                        <td>HTML5, CSS3, Data Structures, Git &amp; GitHub Pages</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Atmospheric Tagline -->
+        <div class="cosmic-banner" style="margin-top: 0.5rem; margin-bottom: -0.25rem;">
+            <span>COMMAND, LEADERSHIP &amp; FINE ARTS</span>
+            <hr>
+        </div>
+
+        <!-- LEADERSHIP & EXTRACURRICULARS SECTION -->
+        <section id="leadership" class="space-card card-leadership">
+            <h2>★ Pulsar Arts</h2>
+            <ul class="activity-list">
+                <li><strong>Student Council Leadership:</strong> Served consistently across multiple academic years on the school student council, contributing to peer coordination, student representation, and event organization.</li>
+                <li><strong>Photography &amp; Visual Editing:</strong> Cultivates an active interest in photography and digital aesthetics—sharing original photographs on Pinterest and designing custom visual collages in Adobe Photoshop.</li>
+                <li><strong>Music, Fine Arts &amp; Competitions:</strong> Trained in synthesizer performance alongside formal background in drawing, dance, and participation in inter-school competitions.</li>
+                <li><strong>Social Media &amp; Trend Observation:</strong> Follows emerging visual aesthetics, digital content formats, and fashion trends across social platforms.</li>
+            </ul>
+        </section>
+
+        <!-- Atmospheric Tagline -->
+        <div class="cosmic-banner" style="margin-top: 0.5rem; margin-bottom: -0.25rem;">
+            <span>ESTABLISHING SECURE TRANSMISSION CHANNEL</span>
+            <hr>
+        </div>
+
+        <!-- FOOTER / CONTACT SECTION -->
+        <footer id="contact" class="space-card card-contact">
+            <div>
+                <h3 class="footer-heading">Planetary Transmission</h3>
+                <p>Indore, Madhya Pradesh, India &bull; Open to academic, technical, and creative collaborations.</p>
+            </div>
+            <div class="transmission-coords">
+                <div class="coord-item"><span>EMAIL ID:</span> <a href="mailto:riddhimaarora345@gmail.com">riddhimaarora345@gmail.com</a></div>
+                <div class="coord-item"><span>GITHUB COSMOS:</span> <a href="https://github.com/riddhima2403" target="_blank">github.com/riddhima2403</a></div>
+                <div class="coord-item"><span>INSTAGRAM:</span> <a href="https://www.instagram.com/yo.ridd_himax?stkn=MWNpYWMyem4yNWNiYQ==" target="_blank">yo.ridd_himax</a></div>
+                <div class="coord-item"><span>LINKEDIN:</span> <a href="https://www.linkedin.com/in/riddhima-arora-9407b2441?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">riddhima-arora-9407b2441</a></div>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+</html>
